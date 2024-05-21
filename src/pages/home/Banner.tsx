@@ -6,7 +6,7 @@ e.preventDefault();
 console.log(e)
     }
   return (
-    <div className="bg-[url('https://cdn.pixabay.com/photo/2021/09/22/08/35/architecture-6646154_1280.jpg')] ">
+    <div className="bg-[url('https://cdn.pixabay.com/photo/2021/09/22/08/35/architecture-6646154_1280.jpg')] h-screen ">
        <div>
        Discover
 Tranquility at Grand Hotel
