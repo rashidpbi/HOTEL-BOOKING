@@ -1,5 +1,6 @@
 
 import './App.css'
+import CustomerReview from './pages/customer-reviews'
 import Destinations from './pages/destinations'
 import Footer from './pages/footer'
 import Home from './pages/home'
@@ -14,6 +15,7 @@ function App() {
       
      <Home/>
      <Destinations/>
+     <CustomerReview/>
     <Footer/>
       </div>
     </>

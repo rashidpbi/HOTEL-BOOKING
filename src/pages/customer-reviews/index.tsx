@@ -1,5 +1,6 @@
 import React from 'react'
 import Sliders from './Slider'
+import { TestimonialCard } from './TestimonialCard'
 
 function CustomerReview() {
   return (
@@ -9,6 +10,8 @@ function CustomerReview() {
         <p className='justify-self-center  self-center'>Discover what our customers have to say about their experiences with our products.</p>
       </div>
 <Sliders/>
+
+
     </div>
   )
 }
