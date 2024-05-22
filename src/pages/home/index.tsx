@@ -7,6 +7,7 @@ import HotelGallery from './HotelGallery'
 function Home() {
   return (
     <div>
+     
         <Navbar/>
     <Banner/>
 <BestHotel/>
