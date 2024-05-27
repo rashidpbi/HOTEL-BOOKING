@@ -1,35 +1,51 @@
-/* import {useReducer } from 'react'
-import React from 'react'
+import { useReducer } from 'react'
+import { FC } from 'react'
 
-import actions from './constants'
 
-const initialState = {
-  value:"dani"
+enum actions{
+  INCREMENT = 'INCREMENT',
+  DECREMENT = 'DECREMENT'
 }
-const reducer = (state,action)=>{
+interface Action{
+  type: actions
+}
+interface State{
+  count: number
+}
+const initialState = {
+  count: 0
+}
+const reducer = (state:State,action:Action)=>{
 switch(action.type){
-  case actions.GET_DETAILS:
+  case actions.INCREMENT:
     return {
-      ...state
+      ...state, count: state.count + 1
+    }
+  case actions.DECREMENT:
+    return {
+      ...state, count: state.count - 1
     }
   default:
     return state;
   
 }
 }
-function Hotel() {
-  const [state,dispatch] = useReducer(reducer,initialState);
+const  Counter:FC = ()  =>{
+  const [counter,dispatch] = useReducer(reducer,initialState);
   
-  const statevalue = dispatch(actions.GET_DETAILS);
-  return (
-    <div>
-      "statevalue.value: "{statevalue.value}
-      "value in state: "{state.value}
+  
+    return(
+      <div>
+     {counter.count}
+     <button type='button' onClick={()=>dispatch({type:actions.INCREMENT})}>INCREMEMENT</button>
+     <button type='button' onClick={()=>dispatch({type:actions.DECREMENT})}>DECREMENT</button>
     
     </div>
-  )
+    )
+  
 }
 
-export default Hotel
+export default Counter
 
- */
+
+
