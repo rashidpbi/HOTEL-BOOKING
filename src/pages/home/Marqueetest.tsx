@@ -1,13 +1,11 @@
-import {  useEffect ,useContext} from "react";
+import { useEffect, useContext } from "react";
 
 import Marquee from "react-fast-marquee";
 import Context from "../../context/Context";
 
 function Marqueetest() {
- 
+  const { state, getImageData } = useContext(Context);
 
-  const {state,getImageData} = useContext(Context)
-  
   useEffect(() => {
     getImageData();
   }, []);
@@ -22,7 +20,7 @@ function Marqueetest() {
       ) : (
         <div>
           <Marquee className="" direction="right">
-            {state.data.map((image,index) => (
+            {state.data.map((image, index) => (
               <div key={index}>
                 <img
                   src={image.imageURL}
@@ -33,7 +31,7 @@ function Marqueetest() {
             ))}
           </Marquee>
           <Marquee className="">
-            {state.data.map((image,index) => (
+            {state.data.map((image, index) => (
               <div key={index}>
                 <img
                   src={image.imageURL}

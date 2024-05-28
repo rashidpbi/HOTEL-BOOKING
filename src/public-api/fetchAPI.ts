@@ -1,11 +1,10 @@
-import axios from "axios"
+import axios from "axios";
 
-const fetchImages = async()=>{
+const fetchImages = async () => {
+  const response = await axios.get(
+    "https://hotel-haven-backend.vercel.app/public/gallery"
+  );
 
-
-    const response = await axios.get('https://hotel-haven-backend.vercel.app/public/gallery')
-   
-    return response.data
-
-}
-export {fetchImages} 
+  return response.data;
+};
+export { fetchImages };

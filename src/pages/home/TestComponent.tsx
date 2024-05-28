@@ -14,27 +14,29 @@ function TestComponent() {
     dispatch({ type: ActionType.FETCH_INIT });
     try {
       const results = await fetchImages();
-      
-      dispatch({ type: ActionType.FETCH_SUCCESS, payload: results });
 
+      dispatch({ type: ActionType.FETCH_SUCCESS, payload: results });
     } catch {
       dispatch({ type: ActionType.FETCH_FAILURE });
     }
-    
   };
   useEffect(() => {
     getData();
-    
-  },[]); 
+  }, []);
   /* useEffect(() => {
     console.log("State data after success dispatch", state.data);
   }, [state.data]);  */
-  return <div className="" >
-    {state.isError && <div>Error fetching data</div>}
+  return (
+    <div className="">
+      {state.isError && <div>Error fetching data</div>}
 
-    {state.isLoading?(<div>Loading....</div>):(<div>Images: {JSON.stringify(state.data)}</div>)}
-    
-    </div>;
+      {state.isLoading ? (
+        <div>Loading....</div>
+      ) : (
+        <div>Images: {JSON.stringify(state.data)}</div>
+      )}
+    </div>
+  );
 }
 
 export default TestComponent;

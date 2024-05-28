@@ -1,4 +1,4 @@
-import Icon from '../../assets/images/2361.jpg'
+import Icon from "../../assets/images/2361.jpg";
 import React from "react";
 import {
   Navbar,
@@ -26,7 +26,7 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
- 
+
 // profile menu component
 const profileMenuItems = [
   {
@@ -50,12 +50,12 @@ const profileMenuItems = [
     icon: PowerIcon,
   },
 ];
- 
+
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -69,7 +69,6 @@ function ProfileMenu() {
             size="sm"
             alt="tania andrew"
             className="border rounded-full border-gray-900 p-0.5"
-           
             height="36"
             width="36"
             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
@@ -114,17 +113,14 @@ function ProfileMenu() {
     </Menu>
   );
 }
- 
+
 // nav list menu
 
- 
-
- 
 // nav list component
 const navListItems = [
   {
-    label:"Pages",
-    icon:UserCircleIcon
+    label: "Pages",
+    icon: UserCircleIcon,
   },
   {
     label: "Account",
@@ -139,11 +135,10 @@ const navListItems = [
     icon: CodeBracketSquareIcon,
   },
 ];
- 
+
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
-      
       {navListItems.map(({ label, icon }, key) => (
         <Typography
           key={label}
@@ -162,23 +157,23 @@ function NavList() {
     </ul>
   );
 }
- 
-export default  function ComplexNavbar() {
+
+export default function ComplexNavbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
- 
+
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setIsNavOpen(false),
+      () => window.innerWidth >= 960 && setIsNavOpen(false)
     );
   }, []);
- 
+
   return (
     <Navbar className="mx-auto max-w-screen-xl p-2  border-none lg:pl-6">
       <div className="relative mx-auto flex items-center  text-blue-gray-900">
-        <img src={Icon} style={{width:50,height:50}}alt='icon'/>
+        <img src={Icon} style={{ width: 50, height: 50 }} alt="icon" />
         <Typography
           as="a"
           href="#"
@@ -198,8 +193,7 @@ export default  function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
- 
-       
+
         <ProfileMenu />
       </div>
       <MobileNav open={isNavOpen} className="overflow-scroll">
