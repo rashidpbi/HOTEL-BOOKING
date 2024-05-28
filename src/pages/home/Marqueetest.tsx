@@ -1,17 +1,13 @@
-import { useReducer, useEffect } from "react";
+import {  useEffect ,useContext} from "react";
 import { fetchImages } from "../../public-api/fetchAPI";
-import { fetchReducer } from "../../reducer/fetchReducer";
-import { ActionType, State } from "../../reducer/types";
+import { ActionType } from "../../reducer/types";
 import Marquee from "react-fast-marquee";
+import Context from "../../context/Context";
 
 function Marqueetest() {
-  const initialState: State = {
-    isLoading: false,
-    isError: false,
-    data: [],
-  };
+ 
 
-  const [state, dispatch] = useReducer(fetchReducer, initialState);
+  const {state,dispatch} = useContext(Context)
   const getData = async () => {
     dispatch({ type: ActionType.FETCH_INIT });
     try {
