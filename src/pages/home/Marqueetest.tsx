@@ -1,25 +1,15 @@
 import {  useEffect ,useContext} from "react";
-import { fetchImages } from "../../public-api/fetchAPI";
-import { ActionType } from "../../reducer/types";
+
 import Marquee from "react-fast-marquee";
 import Context from "../../context/Context";
 
 function Marqueetest() {
  
 
-  const {state,dispatch} = useContext(Context)
-  const getData = async () => {
-    dispatch({ type: ActionType.FETCH_INIT });
-    try {
-      const results = await fetchImages();
-   
-      dispatch({ type: ActionType.FETCH_SUCCESS, payload: results });
-    } catch {
-      dispatch({ type: ActionType.FETCH_FAILURE });
-    }
-  };
+  const {state,getImageData} = useContext(Context)
+  
   useEffect(() => {
-    getData();
+    getImageData();
   }, []);
   /*   useEffect(() => {
     console.log("State data after success dispatch", state.data);

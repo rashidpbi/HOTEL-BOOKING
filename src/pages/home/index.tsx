@@ -8,7 +8,6 @@ function Home() {
   
   return (
     <div>
-     initaltest
         <Navbar/>
     <Banner/>
 <BestHotel/>
