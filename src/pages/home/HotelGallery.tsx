@@ -5,7 +5,7 @@ import Marqueetest from "./Marqueetest";
 
 
 
-const HotelGallery = () => {
+const HotelGallery =() => {
 
   return (
     <div>
