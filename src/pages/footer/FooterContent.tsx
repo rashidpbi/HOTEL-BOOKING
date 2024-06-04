@@ -35,7 +35,7 @@ function FooterContent() {
           <div>rashidpbi111@gmail.com</div>
           <div>icons</div>
         </div>
-      
+
       </div>
       <div className="flex">copyright</div>
     </div>
