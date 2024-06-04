@@ -26,7 +26,7 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
- 
+
 // profile menu component
 const profileMenuItems = [
   {
@@ -50,12 +50,12 @@ const profileMenuItems = [
     icon: PowerIcon,
   },
 ];
- 
+
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -69,16 +69,15 @@ function ProfileMenu() {
             size="sm"
             alt="tania andrew"
             className="border rounded-full border-gray-900 p-0.5"
-           
+
             height="36"
             width="36"
             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
           />
           <ChevronDownIcon
             strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
+            className={`h-3 w-3 transition-transform ${isMenuOpen ? "rotate-180" : ""
+              }`}
           />
         </Button>
       </MenuHandler>
@@ -89,11 +88,10 @@ function ProfileMenu() {
             <MenuItem
               key={label}
               onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
-                  ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                  : ""
-              }`}
+              className={`flex items-center gap-2 rounded ${isLastItem
+                ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                : ""
+                }`}
             >
               {React.createElement(icon, {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
@@ -114,17 +112,17 @@ function ProfileMenu() {
     </Menu>
   );
 }
- 
+
 // nav list menu
 
- 
 
- 
+
+
 // nav list component
 const navListItems = [
   {
-    label:"Pages",
-    icon:UserCircleIcon
+    label: "Pages",
+    icon: UserCircleIcon
   },
   {
     label: "Account",
@@ -139,14 +137,14 @@ const navListItems = [
     icon: CodeBracketSquareIcon,
   },
 ];
- 
+
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
-      
+
       {navListItems.map(({ label, icon }, key) => (
         <Typography
-          key={label}
+          key={label} // always give a unique identifier as key (like ID), give more control for react in its life cycles
           as="a"
           href="#"
           variant="small"
@@ -155,6 +153,7 @@ function NavList() {
         >
           <MenuItem className="flex items-center gap-2 lg:rounded-full">
             {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+            {/* More cleaner approach will be <Icon className: "h-[18px] w-[18px]" /> - rename icon to Icon */}
             <span className="text-gray-900"> {label}</span>
           </MenuItem>
         </Typography>
@@ -162,23 +161,23 @@ function NavList() {
     </ul>
   );
 }
- 
-export default  function ComplexNavbar() {
+
+export default function ComplexNavbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
- 
+
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setIsNavOpen(false),
     );
   }, []);
- 
+
   return (
     <Navbar className="mx-auto max-w-screen-xl p-2  border-none lg:pl-6">
       <div className="relative mx-auto flex items-center  text-blue-gray-900">
-        <img src={Icon} style={{width:50,height:50}}alt='icon'/>
+        <img src={Icon} style={{ width: 50, height: 50 }} alt='icon' />
         <Typography
           as="a"
           href="#"
@@ -198,8 +197,8 @@ export default  function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
- 
-       
+
+
         <ProfileMenu />
       </div>
       <MobileNav open={isNavOpen} className="overflow-scroll">

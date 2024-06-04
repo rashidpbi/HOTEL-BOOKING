@@ -1,18 +1,18 @@
-import {  useEffect ,useContext} from "react";
+import { useEffect, useContext } from "react";
 import { fetchImages } from "../../public-api/fetchAPI";
 import { ActionType } from "../../reducer/types";
 import Marquee from "react-fast-marquee";
 import Context from "../../context/Context";
 
 function Marqueetest() {
- 
 
-  const {state,dispatch} = useContext(Context)
+
+  const { state, dispatch } = useContext(Context) // making a hook for the context simplifies it implementation
   const getData = async () => {
     dispatch({ type: ActionType.FETCH_INIT });
     try {
       const results = await fetchImages();
-   
+
       dispatch({ type: ActionType.FETCH_SUCCESS, payload: results });
     } catch {
       dispatch({ type: ActionType.FETCH_FAILURE });
@@ -32,7 +32,7 @@ function Marqueetest() {
       ) : (
         <div>
           <Marquee className="" direction="right">
-            {state.data.map((image,index) => (
+            {state.data.map((image, index) => (
               <div key={index}>
                 <img
                   src={image.imageURL}
@@ -43,7 +43,7 @@ function Marqueetest() {
             ))}
           </Marquee>
           <Marquee className="">
-            {state.data.map((image,index) => (
+            {state.data.map((image, index) => (
               <div key={index}>
                 <img
                   src={image.imageURL}
